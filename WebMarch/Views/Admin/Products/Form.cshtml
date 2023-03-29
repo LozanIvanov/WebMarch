@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebMarch.Models.Admin.ProductEditViewModel;
+@{
+    Layout = "~/Views/SharedAdmin/_AdminLayout.cshtml";
+
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-sm-offset-4">
+            <div>
+                <Labal>Product Name</Labal>
+                <input type="text" name="Name" class="form-control" value="@Model.ViewProduct.Name"/>
+            </div>
+            <div>
+                <Labal>Product Description</Labal>
+                <input type="text" name="Discription" class="form-control" value="@Model.ViewProduct.Discription"/>
+            </div>
+            <div>
+                <Labal>Product Quantity</Labal>
+                <input type="number" name="Quantity" class="form-control"value="@Model.ViewProduct.Quantity"/>
+            </div>
+            <div>
+            
+                <Labal>Product Price</Labal>
+                <input type="number" name="Price" class="form-control"value="@Model.ViewProduct.Price"/>
+            
+            </div>
+            <div>
+                <Labal>Product Image</Labal>
+                <input type="file" accept="image/*" name="MainImage" class="form-control"/>
+            </div>
+            <div>
+                Category: 
+                <select name="CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+            </div>
+
+        </div>
+        <div class ="btn btn-info">
+            <button class="btn btn-info">Save</button>
+        </div>
+
+    </div>
+</form>
